@@ -6,9 +6,32 @@
 .wrapper{
     width: 500px;
     height: 500px;
+    margin: 0 auto;
     border: 1px solid #666;
+  
+    transform: translateY(10%)
 }
 .wrapper ul{
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    /* box-sizing: border-box; */
+    /* border: 1px solid #666; */
+}
+.wrapper ul li{
+    display: flex;
+    background: #25c;
+    border: 1px solid #666;
+    flex: 1 1 9%;
+    align-items: center;
+    justify-content: center;
+    line-height: 0px;
+}
+.wrapper ul .boom{
+    background-image: url(./img/11.png);
+    background-size: cover;
+}
+.wrapper ul .warn{
+    background-image: url(./img/2.png);
 }

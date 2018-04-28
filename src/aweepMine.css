@@ -34,4 +34,6 @@
 }
 .wrapper ul .warn{
     background-image: url(./img/2.png);
+    background-size: cover;
+    
 }

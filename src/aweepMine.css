@@ -3,30 +3,124 @@
     padding: 0;
     list-style: none;
 }
+html{
+    width: 100%;
+    height: 800px;
+    overflow: hidden;
+}
+body{
+    width: 100%;
+    height: 100%;
+    background-image: url('./img/3.jpg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    /* perspective-origin: 10% 10%; */
+    transform: perspective(800px);
+    
+    transform-style: preserve-3d;
+   
+}
+.control.start{
+    display: none;
+}
+.control{
+    width: 380px;
+    height: 400px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50% , -50%);
+    text-align: center;
+    background-color: rgb(240, 173, 90);
+    /* transform: translateZ(300px); */
+}
+.control div{
+    width: 300px;
+    height: 100px;
+    line-height: 100px;
+    margin: 35px auto 0;
+    color: azure;
+    font-size: 30px;
+    cursor: pointer;
+    background-image: url(./img/6.png);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.control ul{
+    display: none;
+}
+.control .gra-ul{
+    display: none;
+}
+.control .gra-ul.set {
+    display: inline-block;
+    width: 90px;
+    height: 100px;
+    border: 1px solid #424242;
+}
+
+.control .gra-ul.set li{
+    display: inline-block;
+    height: 35px;
+    cursor: pointer;
+}
+.control .gra-ul li:hover{
+    text-decoration: underline;
+}
 .wrapper{
-    width: 500px;
+    display: none;
+}
+.wrapper.start{
+    /* width: 500px; */
     height: 500px;
-    margin: 0 auto;
-    border: 1px solid #666;
-  
-    transform: translateY(10%)
+    /* border: 1px solid #666; */
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    transform: rotate3d(1 , 0 , 0 , 35deg) translateX(-50%);
+    box-shadow: 0px 0px 10px #000 ;
+}
+.wrapper.chu.start{
+    width: 500px;
+}
+.wrapper.shen.start{
+    width: 700px;
+}
+.wrapper.fan.start{
+    width: 750px;
 }
 .wrapper ul{
     width: 100%;
     height: 100%;
     display: flex;
     flex-wrap: wrap;
+   
+   
     /* box-sizing: border-box; */
     /* border: 1px solid #666; */
 }
 .wrapper ul li{
     display: flex;
-    background: #25c;
-    border: 1px solid #666;
-    flex: 1 1 9%;
+    /* background: #25c; */
+    background-image: url(./img/4.png);
+    /* border: 1px solid #666; */
+    flex: 1 1 10%;
     align-items: center;
     justify-content: center;
     line-height: 0px;
+    box-shadow: -1px 1px 40px #111 inset;
+}
+
+
+.wrapper.chu.start ul li{
+    flex: 1 1 10%;
+}
+.wrapper.shen.start ul li{
+    flex: 1 1 5.8%;
+}
+.wrapper.fan.start ul li{
+    flex: 1 1 5%;
 }
 .wrapper ul .boom{
     background-image: url(./img/11.png);
@@ -34,6 +128,82 @@
 }
 .wrapper ul .warn{
     background-image: url(./img/2.png);
-    background-size: cover;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
     
+}
+.info{
+    width: 500px;
+    height: 60px;
+    text-align: center;
+    font-size: 22px;
+    margin: 0 auto;
+    position: absolute;
+    bottom: 65px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgb(240, 173, 90);
+}
+.info div{
+    display: inline-block;
+    padding: 0 30px;
+    /* line-height: 60px; */
+}
+.info p{
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    vertical-align: middle;
+    background-image: url(./img/7.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.end{
+    display: none;
+}
+.active{
+    display: block;
+    width: 150%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-color: rgba(0,0,0,.5);
+    /* transform: translateZ(300px); */
+    transform: translate(-50% , -50%) rotate3d(1 , 0 , 0 , 35deg) ;
+    transform-style: preserve-3d
+}
+.active .end-wrapper{
+    width: 500px;
+    height: 250px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50% , -50%) rotate3d(1 , 0 , 0 , -35deg);
+    transform-origin: 50% 100%;
+
+    text-align: center;
+    background-color: rgba(240, 173, 90, .5);
+}
+.active .end-wrapper *{
+    padding: 10px;
+    font-size: 30px;
+}
+.active .end-wrapper h1{
+    font-size: 50px;
+}
+.active .end-wrapper .sure{
+    width: 300px;
+    height: 65px;
+    margin: 0 auto;
+    line-height: 65px;
+    color: antiquewhite;
+    cursor: pointer;
+    background-image: url(./img/6.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }

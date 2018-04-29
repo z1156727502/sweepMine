@@ -134,7 +134,6 @@ var sweepMine = {
     isSucceed: function () {
         if (sweepMine.remainder == sweepMine.num) {
             sweepMine.end('s');
-            alert('游戏胜利');
         }
     },
     end: function(str){

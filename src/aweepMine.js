@@ -6,10 +6,14 @@ var sweepMine = {
     mine: [],
     clicked: [],
     isSetTime: false,
+    isRender: false,
     init: function () {
         this.creatDom();
         this.setMine();
-        this.renderDom();
+        if(!this.isRender){
+            this.isRender = true;
+            this.renderDom();
+        }
         $('.wrapper').bind('contextmenu', function (e) {
             return false;
         });
@@ -83,7 +87,14 @@ var sweepMine = {
                     var x = 0 | n / _this.wid;
                     var y = 0 | n % _this.wid;
                     if (sweepMine.clicked[x][y] && e.button == 2) {
-                        $(this).toggleClass('warn');
+                        if($(this).hasClass('warn')){
+                            $(this).removeClass('warn').addClass('is').html('？');
+                        }else if($(this).hasClass('is')){
+                            $(this).removeClass('is').html('');
+                        }else{
+                            $(this).addClass('warn');
+                        }
+                       
                         $('.info .warn-info span').html('× ' + (sweepMine.num - $('.warn').length) );
                     }
                 })
@@ -105,7 +116,7 @@ var sweepMine = {
         if (m != -1) { //不是雷
             if (m == 0 && sweepMine.clicked[x][y]) { //周围无雷且未搜索过搜索周围
                 sweepMine.clicked[x][y] = false;
-                $('.wrapper ul li').eq(x * sweepMine.wid + y).css('background-image', 'url(./src/img/5.png)');
+                $('.wrapper ul li').eq(x * sweepMine.wid + y).css('background-image', 'url(./src/img/5.png)').html('');
                 sweepMine.remainder--;
                 sweepMine.searchAround(x, y, sweepMine.isMine);
             }
@@ -140,7 +151,7 @@ var sweepMine = {
         $('.end').addClass('active');
         var $end = $('.end .end-wrapper');
         if(str == 's'){
-            $end.find('h1').html('胜 利 ！');
+            $end.find('h1').html('胜 利');
         }else if(str == 'f'){
             $end.find('h1').html('Game Over!!!');
         }
@@ -150,12 +161,13 @@ var sweepMine = {
         $end.find('.sure').one('click' , function(){
             $('.start').removeClass('start');
             $('.active').removeClass('active');
+            $('.info .time span').html(0);
         })
     }
 }
 
 $('.control .play').on('click', function () {
-    $('.wrapper').addClass('start'); ////////////游戏结束时删除start
+    $('.wrapper').addClass('start'); 
     $('.control').addClass('start')
     sweepMine.init();
 })

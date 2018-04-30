@@ -81,7 +81,6 @@ var sweepMine = {
             }
         });
         $('.wrapper ul').on('mousedown', 'li', function (e) {//右击标记
-            console.log(e)
             if (e.button == 2) {
                 $(this).one('mouseup', function (e) {
                     var n = $(this).index();

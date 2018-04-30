@@ -81,13 +81,21 @@ var sweepMine = {
             }
         });
         $('.wrapper ul').on('mousedown', 'li', function (e) {//右击标记
+            console.log(e)
             if (e.button == 2) {
                 $(this).one('mouseup', function (e) {
                     var n = $(this).index();
                     var x = 0 | n / _this.wid;
                     var y = 0 | n % _this.wid;
                     if (sweepMine.clicked[x][y] && e.button == 2) {
-                        $(this).toggleClass('warn');
+                        if($(this).hasClass('warn')){
+                            $(this).removeClass('warn').addClass('is').html('？');
+                        }else if($(this).hasClass('is')){
+                            $(this).removeClass('is').html('');
+                        }else{
+                            $(this).addClass('warn');
+                        }
+                       
                         $('.info .warn-info span').html('× ' + (sweepMine.num - $('.warn').length) );
                     }
                 })
@@ -109,7 +117,7 @@ var sweepMine = {
         if (m != -1) { //不是雷
             if (m == 0 && sweepMine.clicked[x][y]) { //周围无雷且未搜索过搜索周围
                 sweepMine.clicked[x][y] = false;
-                $('.wrapper ul li').eq(x * sweepMine.wid + y).css('background-image', 'url(./src/img/5.png)');
+                $('.wrapper ul li').eq(x * sweepMine.wid + y).css('background-image', 'url(./src/img/5.png)').html('');
                 sweepMine.remainder--;
                 sweepMine.searchAround(x, y, sweepMine.isMine);
             }

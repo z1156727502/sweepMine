@@ -6,10 +6,14 @@ var sweepMine = {
     mine: [],
     clicked: [],
     isSetTime: false,
+    isRender: false,
     init: function () {
         this.creatDom();
         this.setMine();
-        this.renderDom();
+        if(!this.isRender){
+            this.isRender = true;
+            this.renderDom();
+        }
         $('.wrapper').bind('contextmenu', function (e) {
             return false;
         });
@@ -155,7 +159,7 @@ var sweepMine = {
 }
 
 $('.control .play').on('click', function () {
-    $('.wrapper').addClass('start'); ////////////游戏结束时删除start
+    $('.wrapper').addClass('start'); 
     $('.control').addClass('start')
     sweepMine.init();
 })

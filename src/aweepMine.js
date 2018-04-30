@@ -144,7 +144,7 @@ var sweepMine = {
         $('.end').addClass('active');
         var $end = $('.end .end-wrapper');
         if(str == 's'){
-            $end.find('h1').html('胜 利 ！');
+            $end.find('h1').html('胜 利');
         }else if(str == 'f'){
             $end.find('h1').html('Game Over!!!');
         }
@@ -154,6 +154,7 @@ var sweepMine = {
         $end.find('.sure').one('click' , function(){
             $('.start').removeClass('start');
             $('.active').removeClass('active');
+            $('.info .time span').html(0);
         })
     }
 }

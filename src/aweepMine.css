@@ -78,7 +78,7 @@ body{
 }
 .wrapper.start{
     /* width: 500px; */
-    height: 63vh;
+    height: 62.5%;
     /* border: 1px solid #666; */
     display: block;
     position: absolute;
@@ -88,13 +88,13 @@ body{
     box-shadow: 0px 0px 10px #000 ;
 }
 .wrapper.chu.start{
-    width: 37vw;
+    width: 37.1%;
 }
 .wrapper.shen.start{
-    width: 52vw;
+    width: 51.9%;
 }
 .wrapper.fan.start{
-    width: 56vw;
+    width: 55.6%;
 }
 .wrapper ul{
     width: 100%;
@@ -178,7 +178,6 @@ body{
     top: 50%;
     left: 50%;
     background-color: rgba(0,0,0,.5);
-    /* transform: translateZ(300px); */
     transform: translate(-50% , -50%) rotate3d(1 , 0 , 0 , 35deg) ;
     transform-style: preserve-3d
 }
@@ -188,11 +187,11 @@ body{
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50% , -50%) rotate3d(1 , 0 , 0 , -35deg);
     transform-origin: 50% 100%;
-
+    transform: translate(-50% , -50%) rotate3d(1 , 0 , 0 , -35deg);
     text-align: center;
     background-color: rgba(240, 173, 90, .5);
+    z-index: 9999;
 }
 .active .end-wrapper *{
     padding: 10px;

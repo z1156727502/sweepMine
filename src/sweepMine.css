@@ -83,6 +83,7 @@ body{
     left: 50%;
     top: 20%;
     transform: rotate3d(1 , 0 , 0 , 35deg) translateX(-50%);
+    /* -ms-transform:matrix3d(1, 0, 0, 0, 0, 0.819152, 0.573576, 0, 0, -0.573576, 0.819152, 0, -205.5, 0, 0, 1); */
     box-shadow: 0px 0px 10px #000 ;
 }
 .wrapper.chu.start{

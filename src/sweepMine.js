@@ -85,7 +85,7 @@
             $('.wrapper ul').on('mousedown', 'li', function (e) {//右击标记
                 if (e.button == 2) {
                     var inde = $(this).index();
-                    if (!sweepMine.canUp[inde]) {
+                    if (!sweepMine.canUp[inde]) {//标记是否绑定up事件
                         sweepMine.canUp[inde] = true;
                         $(this).one('mouseup', function (e) {
                             var n = $(this).index();
